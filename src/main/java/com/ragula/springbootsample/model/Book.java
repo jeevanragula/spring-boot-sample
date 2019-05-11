@@ -1,7 +1,13 @@
-package com.ragula.springbootsample;
+package com.ragula.springbootsample.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Id;
+
+@Document(collection = "books")
 public class Book {
 
+    @Id
     private int id;
     private String name;
     private String category;
@@ -34,5 +40,14 @@ public class Book {
 
     public void setCategory(String category) {
         category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                '}';
     }
 }

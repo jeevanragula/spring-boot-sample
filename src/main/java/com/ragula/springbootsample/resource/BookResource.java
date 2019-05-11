@@ -1,10 +1,10 @@
-package com.ragula.springbootsample;
+package com.ragula.springbootsample.resource;
 
+import com.ragula.springbootsample.model.Book;
+import com.ragula.springbootsample.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -26,7 +26,8 @@ public class BookResource {
     }
 
     @PostMapping
-    public Book createBook(Book book) {
+    public Book createBook(@RequestBody Book book) {
+        System.out.println("Book" + book);
         return bookService.createBook(book);
     }
 
